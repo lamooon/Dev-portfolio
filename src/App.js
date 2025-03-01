@@ -22,7 +22,9 @@ function App() {
     setSubmitStatus('sending');
 
     try {
-      const response = await fetch('/.netlify/functions/contact', {
+      // Use the environment variable for the endpoint
+      const endpoint = process.env.REACT_APP_CONTACT_ENDPOINT || '/.netlify/functions/contact';
+      const response = await fetch(endpoint, {
         method: 'POST',
         body: JSON.stringify(formData)
       });
@@ -31,9 +33,12 @@ function App() {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', message: '' });
       } else {
+        const errorData = await response.json();
+        console.error('Server error:', errorData);
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Fetch error:', error);
       setSubmitStatus('error');
     }
   };

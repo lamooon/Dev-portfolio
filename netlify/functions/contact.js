@@ -1,5 +1,8 @@
-// netlify/functions/contact.js
 const nodemailer = require('nodemailer');
+
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 exports.handler = async function(event, context) {
   // Only allow POST requests
@@ -17,7 +20,7 @@ exports.handler = async function(event, context) {
   } catch (error) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ message: 'Invalid JSON' })
+      body: JSON.stringify({ message: 'Invalid JSON', error: error.message })
     };
   }
 
@@ -31,36 +34,46 @@ exports.handler = async function(event, context) {
   }
 
   try {
-
+    // Create a transporter
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT,
-      secure: true,
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_SECURE === 'true',
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS
       }
     });
 
-    await transporter.sendMail({
+    // Send the email
+    const info = await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-      to: "leehamin35@gmail.com",
-      subject: `New contact from ${name}`,
+      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+      subject: `New email sent from: ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `<p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Message:</strong> ${message}</p>`
     });
 
+    console.log('Message sent: %s', info.messageId);
+
     return {
       statusCode: 200,
-      body: JSON.stringify({ message: 'Message sent successfully' })
+      body: JSON.stringify({
+        message: 'Message sent successfully',
+        messageId: info.messageId
+      })
     };
   } catch (error) {
     console.error('Error sending email:', error);
     return {
       statusCode: 500,
-      body: JSON.stringify({ message: 'Error sending message' })
+      body: JSON.stringify({
+        message: 'Error sending message',
+        error: error.message,
+        stack: error.stack
+      })
     };
   }
 };
