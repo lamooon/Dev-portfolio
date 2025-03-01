@@ -45,25 +45,27 @@ function App() {
 
   return (
     <div className="app">
-      <header>
-        <div className="container">
-          <h1>Lee's portfolio</h1>
-          <p className="title"></p>
-          <nav>
-            <ul>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-              <li><a href="#skills">Skills</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-
+      <div id="top">
+        <header className="headers">
+          <div className="container">
+            <h1><a href="#top">Lee's Portfolio</a></h1>
+            <p className="title"></p>
+            <nav>
+              <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </div>
       <section id="hero" className="container">
         <div className="hero-content">
-          <h2>Hello, I'm <span className="highlight">Lee Hamin</span></h2>
-          <p className="lead">I build modern web applications with React and Node.js</p>
+          <h2>Hi, I'm <span className="highlight">Lee Hamin,</span></h2>
+          <p className="lead">
+            Bachelor of Engineering at Computer Science, 2026 <br/> The University of Hong Kong</p>
           <div className="cta-buttons">
             <a href="#projects" className="btn primary">View My Work</a>
             <a href="#contact" className="btn secondary">Contact Me</a>
@@ -75,9 +77,10 @@ function App() {
         <h2>About Me</h2>
         <div className="about-content">
           <div className="about-text">
-            <p>I'm a passionate software developer who's interested in diverse fields within computer science such as
-              web applications, AI.</p>
-
+            <p>I'm a passionate software developer who's interested in diverse fields within computer science such as web development and AI.
+              I am a highly driven software developer with a diverse background that equips me to collaborate effectively,
+              approach challenges with a logical mindset, and apply strong technical expertise to deliver innovative solutions.
+              any challenge.</p>
           </div>
         </div>
       </section>
@@ -223,7 +226,7 @@ function App() {
 
       <footer>
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} Lee's portfolio</p>
+          <p>&copy; {new Date().getFullYear()} Lee's Portfolio</p>
         </div>
       </footer>
     </div>
