@@ -98,7 +98,7 @@ function App() {
                 <span>Kubernetes</span>
               </div>
               <div className="project-links">
-                <a href="#" className="btn small secondary">GitHub</a>
+                <a href="https://github.com/lamooon/Stock-Trading-Insights-Using-LLMs" className="btn small secondary">GitHub</a>
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ function App() {
                 <span>Git</span>
               </div>
               <div className="project-links">
-                <a href="#" className="btn small secondary">GitHub</a>
+                <a href="https://github.com/lamooon/PennyKeeper" className="btn small secondary">GitHub</a>
               </div>
             </div>
           </div>
