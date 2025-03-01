@@ -65,7 +65,7 @@ function App() {
         <div className="hero-content">
           <h2>Hi, I'm <span className="highlight">Lee Hamin,</span></h2>
           <p className="lead">
-            Bachelor of Engineering at Computer Science, 2026 <br/> The University of Hong Kong</p>
+            Bachelor of Engineering in Computer Science, 2026 <br/> The University of Hong Kong</p>
           <div className="cta-buttons">
             <a href="#projects" className="btn primary">View My Work</a>
             <a href="#contact" className="btn secondary">Contact Me</a>
