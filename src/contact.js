@@ -30,15 +30,8 @@ exports.handler = async function(event, context) {
     };
   }
 
-  // For demonstration purposes, we'll just log the contact info
-  // In a real application, you'd send an email or store in a database
-  console.log('Contact form submission:', { name, email, message });
-
-  // You would typically set up nodemailer here to send emails
-  // This is just a mock implementation
   try {
-    /*
-    // Uncomment and configure this for actual email sending
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: process.env.SMTP_PORT,
@@ -51,14 +44,13 @@ exports.handler = async function(event, context) {
 
     await transporter.sendMail({
       from: `"Portfolio Contact" <${process.env.SMTP_USER}>`,
-      to: "your-email@example.com",
+      to: "leehamin35@gmail.com",
       subject: `New contact from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
       html: `<p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Message:</strong> ${message}</p>`
     });
-    */
 
     return {
       statusCode: 200,
