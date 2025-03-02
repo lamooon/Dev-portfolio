@@ -48,7 +48,7 @@ function App() {
       <div id="top">
         <header className="headers">
           <div className="container">
-            <h1><a href="#top">Lee's Portfolio</a></h1>
+            <h1><a href="/">Lee's Portfolio</a></h1>
             <p className="title"></p>
             <nav>
               <ul>
