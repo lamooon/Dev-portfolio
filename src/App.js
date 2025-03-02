@@ -77,7 +77,7 @@ function App() {
         <h2>About Me</h2>
         <div className="about-content">
           <div className="about-text">
-            <p>I'm a passionate software developer who's interested in diverse fields within computer science such as web development and AI.
+            <p>I'm a passionate software engineer who's interested in diverse fields within computer science such as web development and AI.
               I am a highly driven software developer with a diverse background that equips me to collaborate effectively,
               approach challenges with a logical mindset, and apply strong technical expertise to deliver innovative solutions.
               any challenge.</p>
@@ -110,7 +110,7 @@ function App() {
           <div className="project-card">
             <div className="project-content">
               <h3>PennyKeeper - Financial Habit Tracking App</h3>
-              <p>An app that features that tracks your financial expenditure habits.</p>
+              <p>An app that tracks your financial expenditure habits.</p>
               <div className="tech-stack">
                 <span>Kotlin</span>
                 <span>Room DB</span>
